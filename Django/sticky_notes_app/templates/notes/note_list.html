@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+  <a href="{% url 'note_create' %}">Create Note</a>
+  <ul>
+    {% for note in notes %}
+      <li>
+        <strong>{{note.title}}</strong><br>
+        {{ note.content }}<br>
+        <a href="{% url 'note_update' pk=note.pk %}">Edit</a>
+        <a href="{% url 'note_delete' pk=note.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+
+
